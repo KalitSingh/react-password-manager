@@ -1,0 +1,46 @@
+.password-item {
+  max-width: 320px;
+  margin: 20px 20px 0px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Can be replaced via padding beside siteLogo */
+  align-items: center;
+  border: 1px solid wheat;
+  flex: 1;
+}
+
+.password-item-logo {
+  background-color: lightgreen;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+.password-items-details {
+  color: white;
+}
+.password-items-title {
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+.password-items-detail {
+  font-size: 0.7rem;
+  padding: 4px 0 0 0;
+  margin: 0;
+}
+
+.delete-btn {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.delete-btn-img {
+  width: 40px;
+  height: 40px;
+}
