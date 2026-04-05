@@ -1,14 +1,14 @@
 .password-item {
-  max-width: 320px;
-  margin: 20px 20px 0px;
-  padding: 10px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between; /* Can be replaced via padding beside siteLogo */
   align-items: center;
   border: 1px solid wheat;
-  flex: 1;
 }
-
+.password-details-container{
+  display: flex;
+  align-items: center;
+}
 .password-item-logo {
   background-color: lightgreen;
   border-radius: 100%;
@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 12px;
+  margin-left: 8px;
 }
 .password-items-details {
   color: white;

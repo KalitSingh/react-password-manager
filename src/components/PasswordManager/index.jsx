@@ -25,6 +25,20 @@ const initialPasswordsList = [
     userName: 'Kalit',
     sitePassword: '12345678',
   },
+  {
+    id: uuidv4(),
+    siteLogo: 'G',
+    siteName: 'gmail.com',
+    userName: 'Kalit',
+    sitePassword: '12345678',
+  },
+  {
+    id: uuidv4(),
+    siteLogo: 'G',
+    siteName: 'gmail.com',
+    userName: 'Kalit',
+    sitePassword: '12345678',
+  },
 ]
 
 class PasswordManager extends Component {

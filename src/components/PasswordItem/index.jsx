@@ -7,11 +7,13 @@ const PasswordItem = props => {
 
   return (
     <li className="password-item">
-      <p className="password-item-logo">{siteLogo}</p>
-      <div className="password-items-details">
+      <div className="password-details-container">
+        <p className="password-item-logo">{siteLogo}</p>
+        <div className="password-items-details">
         <h1 className="password-items-title">Site Name: {siteName}</h1>
         <p className="password-items-detail">User Name: {userName}</p>
         <p className="password-items-detail">Site Password: {sitePassword}</p>
+      </div>
       </div>
 
       <button type="button" className="delete-btn">

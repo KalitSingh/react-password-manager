@@ -26,7 +26,7 @@
 }
 @media screen and (min-width: 768px) {
   .password-manager-cards-container {
-    width: 90%;
+    /* width: 90%; */
     max-width: 1120px;
   }
 }
@@ -38,11 +38,11 @@
   padding: 20px;
   background-color: #5763a5;
   border-radius: 12px;
-  width: 100%;
+  width: 96%;
 }
 @media screen and (min-width: 768px) {
   .landing-page-container {
-    padding: 20px 46px 20px 46px;
+    padding: 20px 28px 20px 28px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -125,13 +125,13 @@
   padding: 20px;
   background-color: #454f84;
   border-radius: 12px;
-  width: 100%;
+  width: 96%;
   min-height: 50vh;
   margin-top: 20px;
 }
 @media screen and (min-width: 768px) {
   .password-manager-container {
-    padding: 20px 46px 20px 46px;
+    padding: 20px 28px 20px 28px;
   }
 }
 .password-manager-header-part {
@@ -140,7 +140,7 @@
   align-items: center;
 }
 .password-counter {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 .counts {
@@ -150,14 +150,14 @@
   margin-left: 6px;
   display: inline-block;
   text-align: center;
-  width: 40px;
+  width: 20px;
   height: 26px;
 }
 .search-password-container {
-  width: 200px;
+  max-width: 200px;
 }
 .search-password {
-  width: 95%;
+  width: 120px;
   padding: 10px;
   border-radius: 3px;
   color: #454f84;
@@ -165,6 +165,11 @@
   font-size: 12px;
   outline: none;
   border: none;
+}
+@media screen and (min-width: 768px){
+  .search-password{
+    width: 90%;
+  }
 }
 .horizontal-rule-2 {
   border: none;
@@ -178,6 +183,7 @@
   align-items: center;
   margin-top: 20px;
   color: white;
+  font-size: 15px;
 }
 #showPassword {
   margin-right: 8px;
@@ -188,16 +194,26 @@
 /* Password List code */
 .password-items-container {
   list-style-type: none;
-  display: flex;
+  /* removing flexbox for cards layout due to a problem of (single card of 2nd row in UI taking extra space than their top row cards*/
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 0;
+  flex-wrap: wrap; */
+
+  /* using Grid easily figure out that problem, used in complicated layout */
+  display: grid; 
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0px;
+  gap: 10px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .password-items-container {
-    flex-direction: row;
-    justify-content: flex-start;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 992px) {
+  .password-items-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
