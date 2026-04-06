@@ -34,6 +34,11 @@
   padding: 4px 0 0 0;
   margin: 0;
 }
+.passwords-stars-img{
+  margin-top: 2px;
+  width: 80px;
+  height: 18px;
+}
 
 .delete-btn {
   outline: none;

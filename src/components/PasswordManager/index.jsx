@@ -54,6 +54,13 @@ class PasswordManager extends Component {
     }
   }
 
+  // Event Listner for Checkbox input element, show/hide password feature
+  onChangeCheckBoxInput = (event) => {
+    console.log(event.target.checked)
+
+    this.setState({showPassword: event.target.checked})
+  }
+
   // Event listner of Search Input element 
   onChangeSearchInput = (event) => {
     const searchValueLowerCase = event.target.value
@@ -126,10 +133,10 @@ class PasswordManager extends Component {
     const lenOfPasswords = filteredSavedPasswordsList.length 
 
 
-    console.log(passwordsList)
-    console.log(siteNameInput)
-    console.log(userNameInput)
-    console.log(passwordInput)
+    // console.log(passwordsList)
+    // console.log(siteNameInput)
+    // console.log(userNameInput)
+    // console.log(passwordInput)
 
     return (
       <>
@@ -197,13 +204,17 @@ class PasswordManager extends Component {
               </div>
               <hr className="horizontal-rule-2" />
               <div className="showPassword-container">
-                <input id="showPassword" type="checkbox" />
+                <input
+                 onChange={this.onChangeCheckBoxInput}
+                 id="showPassword"
+                 type="checkbox" />
                 <label htmlFor="showPassword">Show Passwords</label>
               </div>
               <ul className="password-items-container">
                 {filteredSavedPasswordsList.map(eachItem => (
                   <PasswordItem
                     eachItem={eachItem}
+                    id={eachItem.id}
                     checkBoxFlag={showPassword}
                     onclickedDeleteBtn={this.onclickedDeleteBtn}
                   />

@@ -1,9 +1,26 @@
 import './index.css'
 
 const PasswordItem = props => {
-  const {eachItem} = props
+  const {eachItem, checkBoxFlag} = props
+  console.log(checkBoxFlag, "inCompo")
   const {id, siteLogo, siteName, userName, sitePassword} = eachItem
-  console.log(id)
+  // console.log(id)
+
+  const showOrHidePassword = () => {
+
+    let jsxElement
+    if (checkBoxFlag){
+      jsxElement = <p className="password-items-detail">Site Password: {sitePassword}</p>
+    } 
+    else {
+      jsxElement = <img className="passwords-stars-img"
+       src="https://assets.ccbp.in/frontend/react-js/password-manager-stars-img.png"
+        alt="stars" 
+        />
+    }
+
+    return jsxElement
+  }
 
   return (
     <li className="password-item">
@@ -12,7 +29,7 @@ const PasswordItem = props => {
         <div className="password-items-details">
         <h1 className="password-items-title">Site Name: {siteName}</h1>
         <p className="password-items-detail">User Name: {userName}</p>
-        <p className="password-items-detail">Site Password: {sitePassword}</p>
+        {showOrHidePassword()}
       </div>
       </div>
 
