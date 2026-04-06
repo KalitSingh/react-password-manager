@@ -17,12 +17,12 @@
 }
 /* Cards Part */
 .password-manager-cards-container {
-  margin: 20px;
+  /* margin: 20px; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 80%; */
-  padding: 20px;
+  width: 100%;
+  /* padding: 20px; */
 }
 @media screen and (min-width: 768px) {
   .password-manager-cards-container {
@@ -136,6 +136,7 @@
   width: 96%;
   min-height: 50vh;
   margin-top: 20px;
+  color: white;
 }
 @media screen and (min-width: 768px) {
   .password-manager-container {
@@ -226,8 +227,16 @@
   }
 }
 /* No password images css */ 
+.no-password-img-container{
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .no-password-img {
+  align-items: center;
   width: 100%;
+  max-width: 500px;
   margin-top: 40px;
   margin-bottom: 40px;
 }

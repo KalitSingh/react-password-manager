@@ -225,7 +225,14 @@ class PasswordManager extends Component {
               </div>
               {
                 // handling No password case, showing image when no password will be in passwordsList
-                lenOfPasswords === 0 ? <img className="no-password-img" src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png" alt="no Password" /> :
+                lenOfPasswords === 0 ? 
+                <>
+                <div className="no-password-img-container">
+                <img className="no-password-img" src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png" alt="no Password" /> 
+                <p style={{"text-align": "center", "font-size": "26px"}}>No Password</p>
+                </div>
+                </>
+                :
                 <ul className="password-items-container">
                    { filteredSavedPasswordsList.map(eachItem => (
                     <PasswordItem
