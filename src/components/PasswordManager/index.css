@@ -47,18 +47,26 @@
     justify-content: space-between;
   }
 }
+.langing-page-img-container{
+    display: flex;
+    justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .langing-page-img-container{
+    order: 1;
+    width: 100%;
+}
+}
 .landing-page-img {
   width: 80%;
   max-width: 400px;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
-  .landing-page-img {
-    width: 50%;
-    margin-left: 22px;
-    margin-bottom: none;
-    order: 1;
-  }
+ .landing-page-img {
+  width: 100%;
+  margin-left: 28px;
+}
 }
 .landing-page-user-form-container {
   width: 90%;
@@ -216,4 +224,10 @@
   .password-items-container {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+/* No password images css */ 
+.no-password-img {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }

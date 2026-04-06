@@ -150,11 +150,14 @@ class PasswordManager extends Component {
           </div>
           <div className="password-manager-cards-container">
             <div className="landing-page-container">
-              <img
+              <picture className="langing-page-img-container">
+                <source media="(min-width: 768px)" srcSet="https://assets.ccbp.in/frontend/react-js/password-manager-lg-img.png" />
+                <img
                 className="landing-page-img"
                 src="https://assets.ccbp.in/frontend/react-js/password-manager-sm-img.png"
                 alt="password manager"
               />
+              </picture>
               <div className="landing-page-user-form-container">
                 <p className="user-form-title">Add New Password</p>
                 <form className="landing-page-user-form">
@@ -210,16 +213,21 @@ class PasswordManager extends Component {
                  type="checkbox" />
                 <label htmlFor="showPassword">Show Passwords</label>
               </div>
-              <ul className="password-items-container">
-                {filteredSavedPasswordsList.map(eachItem => (
-                  <PasswordItem
-                    eachItem={eachItem}
-                    id={eachItem.id}
-                    checkBoxFlag={showPassword}
-                    onclickedDeleteBtn={this.onclickedDeleteBtn}
-                  />
-                ))}
-              </ul>
+              {
+                // handling No password case, showing image when no password will be in passwordsList
+                lenOfPasswords === 0 ? <img className="no-password-img" src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png" alt="no Password" /> :
+                <ul className="password-items-container">
+                   { filteredSavedPasswordsList.map(eachItem => (
+                    <PasswordItem
+                      eachItem={eachItem}
+                      id={eachItem.id}
+                      checkBoxFlag={showPassword}
+                      onclickedDeleteBtn={this.onclickedDeleteBtn}
+                    />
+                  ))}
+                  
+                </ul>
+              }
             </div>
           </div>
         </div>
