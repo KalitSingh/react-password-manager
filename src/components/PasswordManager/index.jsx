@@ -54,6 +54,16 @@ class PasswordManager extends Component {
     }
   }
 
+  // Event Listner function of passwordItem component delete button 
+  onClickedDeleteBtn = (rId) => {
+    const {passwordsList} = this.state
+
+    const remainingPasswordsItems = passwordsList.filter((eachItem) => (eachItem.id !== rId))
+
+    // updating passwordsList in state with remainig passwordsList object after deletion 
+    this.setState({passwordsList: remainingPasswordsItems})
+  }
+
   // Event Listner for Checkbox input element, show/hide password feature
   onChangeCheckBoxInput = (event) => {
     console.log(event.target.checked)
@@ -222,7 +232,7 @@ class PasswordManager extends Component {
                       eachItem={eachItem}
                       id={eachItem.id}
                       checkBoxFlag={showPassword}
-                      onclickedDeleteBtn={this.onclickedDeleteBtn}
+                      onClickedDeleteBtn={this.onClickedDeleteBtn}
                     />
                   ))}
                   

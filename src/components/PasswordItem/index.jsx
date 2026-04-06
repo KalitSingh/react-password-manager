@@ -1,10 +1,15 @@
 import './index.css'
 
 const PasswordItem = props => {
-  const {eachItem, checkBoxFlag} = props
+  const {eachItem, checkBoxFlag, onClickedDeleteBtn} = props
   console.log(checkBoxFlag, "inCompo")
   const {id, siteLogo, siteName, userName, sitePassword} = eachItem
   // console.log(id)
+
+  // Delete button Event listner 
+  const onClickDeleteBtn = () => {
+    onClickedDeleteBtn(id)
+  }
 
   const showOrHidePassword = () => {
 
@@ -22,6 +27,7 @@ const PasswordItem = props => {
     return jsxElement
   }
 
+
   return (
     <li className="password-item">
       <div className="password-details-container">
@@ -33,7 +39,7 @@ const PasswordItem = props => {
       </div>
       </div>
 
-      <button type="button" className="delete-btn">
+      <button onClick={onClickDeleteBtn} type="button" className="delete-btn">
         <img
           className="delete-btn-img"
           src="https://assets.ccbp.in/frontend/react-js/password-manager-delete-img.png "
