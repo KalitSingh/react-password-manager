@@ -45,15 +45,78 @@ class PasswordManager extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      siteNameInput: "",
+      userNameInput: "",
+      passwordInput: "",
       passwordsList: initialPasswordsList,
       lenOfPasswords: initialPasswordsList.length,
       showPassword: false,
     }
   }
 
+  // Event Listner for Add button of form element
+  onClickAddBtn = (event) => {
+    // preventing default behaviour of form element 
+    event.preventDefault()
+    console.log("clicked") 
+    const {siteNameInput, userNameInput, passwordInput} = this.state 
+
+    // formatting user data as object format stored in the initialiPasswordList to store in passwordList inside state
+    const dataObjectFormat = {
+      id: uuidv4(),
+      siteName: siteNameInput,
+      userName: userNameInput,
+      sitePassword: passwordInput
+    }
+
+    // storing userData in state if database connected hota to db/server pe send karte
+    this.setState((prevState) => {
+      // this is shorthand method but suitable for one operation only
+      // {passwordsList: [...prevState.passwordsList, dataObjectFormat]}
+      const passwordsList = prevState.passwordsList 
+
+      return {
+        passwordsList: [...passwordsList, dataObjectFormat],
+        siteNameInput: "",
+        userNameInput: "",
+        passwordInput: ""
+      }
+    })
+
+  }
+
+
+  // Event listner for Password form input element
+  onChangePasswordInput = (event) => {
+    // console.log(event.target.value)
+    const passwordInputValueLowerCase = event.target.value.toLowerCase()
+    this.setState({passwordInput: passwordInputValueLowerCase})
+  }
+
+  // Event listner for site name form input element
+  onChangeSiteNameInput = (event) => {
+    // console.log(event.target.value)
+    const siteInputValueLowerCase = event.target.value.toLowerCase()
+    this.setState({siteNameInput: siteInputValueLowerCase})
+
+  }
+
+    // Event listner for username form input element
+  onChangeUserNameInput = (event) => {
+    // console.log(event.target.value)
+    const userNameInputValueLowerCase = event.target.value.toLowerCase()
+    this.setState({userNameInput: userNameInputValueLowerCase})
+  }
+
+
   render() {
-    const {passwordsList, lenOfPasswords, showPassword} = this.state
-    console.log(lenOfPasswords)
+    const {passwordsList, lenOfPasswords, showPassword, siteNameInput, userNameInput, passwordInput
+} = this.state
+
+    console.log(passwordsList)
+    console.log(siteNameInput)
+    console.log(userNameInput)
+    console.log(passwordInput)
 
     return (
       <>
@@ -76,21 +139,29 @@ class PasswordManager extends Component {
                 <p className="user-form-title">Add New Password</p>
                 <form className="landing-page-user-form">
                   <input
+                    onChange={this.onChangeSiteNameInput}
                     placeholder="Enter a Website"
+                    value={siteNameInput}
                     className="user-form-inputs"
                     type="text"
                   />
                   <input
-                    placeholder="Enter a Website"
+                    onChange={this.onChangeUserNameInput}
+                    placeholder="Enter UserName"
+                    value={userNameInput}
+                    className="user-form-inputs"
+                    type="text"
+                  />
+                  <input
+                    onChange={this.onChangePasswordInput}
+                    placeholder="Enter Password"
+                    value={passwordInput}
                     className="user-form-inputs"
                     type="password"
                   />
-                  <input
-                    placeholder="Enter a Website"
-                    className="user-form-inputs"
-                    type="text"
-                  />
-                  <button type="submit" className="user-form-btn">
+                  <button
+                  onClick={this.onClickAddBtn}
+                  type="submit" className="user-form-btn">
                     Add
                   </button>
                 </form>
