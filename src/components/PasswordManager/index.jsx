@@ -224,7 +224,7 @@ class PasswordManager extends Component {
                 <label htmlFor="showPassword">Show Passwords</label>
               </div>
               {
-                // handling No password case, showing image when no password will be in passwordsList
+                // handling No password case, showing image when no password will be in passwordsList and showing saved passwords Cards in UI
                 lenOfPasswords === 0 ? 
                 <>
                 <div className="no-password-img-container">
@@ -245,6 +245,7 @@ class PasswordManager extends Component {
                   
                 </ul>
               }
+              <p style={{"text-align": "right", "margin-top": "60px"}}>Made with &hearts; by Kalit S</p>
             </div>
           </div>
         </div>
