@@ -240,3 +240,17 @@
   margin-top: 40px;
   margin-bottom: 40px;
 }
+/* footer kalit name title */
+.kalit-name-footer-title{
+   background-color: #454f84;
+  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: right;
+}
+.kalit-name-footer-title:hover{
+   transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}

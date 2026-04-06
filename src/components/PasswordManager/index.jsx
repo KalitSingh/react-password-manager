@@ -245,7 +245,8 @@ class PasswordManager extends Component {
                   
                 </ul>
               }
-              <p style={{"text-align": "right", "margin-top": "60px"}}>Made with &hearts; by Kalit S</p>
+              <hr className="horizontal-rule-2" />
+              <p className="kalit-name-footer-title" >Made with &hearts; by Kalit S</p>
             </div>
           </div>
         </div>
