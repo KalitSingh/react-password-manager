@@ -73,7 +73,7 @@ class PasswordManager extends Component {
 
   // Event listner of Search Input element 
   onChangeSearchInput = (event) => {
-    const searchValueLowerCase = event.target.value
+    const searchValueLowerCase = event.target.value.toLowerCase
 
     this.setState({searchInputValue: searchValueLowerCase})
   }
