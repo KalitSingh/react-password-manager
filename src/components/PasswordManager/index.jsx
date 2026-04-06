@@ -14,14 +14,14 @@ const initialPasswordsList = [
   {
     id: uuidv4(),
     siteLogo: 'G',
-    siteName: 'gmail.com',
+    siteName: 'google.com',
     userName: 'Kalit',
     sitePassword: '12345678',
   },
   {
     id: uuidv4(),
     siteLogo: 'G',
-    siteName: 'gmail.com',
+    siteName: 'flipcart.com',
     userName: 'Kalit',
     sitePassword: '12345678',
   },
@@ -49,9 +49,16 @@ class PasswordManager extends Component {
       userNameInput: "",
       passwordInput: "",
       passwordsList: initialPasswordsList,
-      lenOfPasswords: initialPasswordsList.length,
+      searchInputValue: "",
       showPassword: false,
     }
+  }
+
+  // Event listner of Search Input element 
+  onChangeSearchInput = (event) => {
+    const searchValueLowerCase = event.target.value
+
+    this.setState({searchInputValue: searchValueLowerCase})
   }
 
   // Event Listner for Add button of form element
@@ -110,8 +117,14 @@ class PasswordManager extends Component {
 
 
   render() {
-    const {passwordsList, lenOfPasswords, showPassword, siteNameInput, userNameInput, passwordInput
-} = this.state
+    const {passwordsList, searchInputValue, showPassword, siteNameInput, userNameInput, passwordInput} = this.state
+
+    // stored passwordsList or filtered when user search it 
+    const filteredSavedPasswordsList = passwordsList.filter((eachPass) => (eachPass.siteName.includes(searchInputValue)))
+
+    // finding length of Passwords stored in the current searched passwordsList when user search
+    const lenOfPasswords = filteredSavedPasswordsList.length 
+
 
     console.log(passwordsList)
     console.log(siteNameInput)
@@ -170,11 +183,13 @@ class PasswordManager extends Component {
             <div className="password-manager-container">
               <div className="password-manager-header-part">
                 <p className="password-counter">
-                  Total Passwords <span className="counts">{0}</span>
+                  Total Passwords <span className="counts">{lenOfPasswords}</span>
                 </p>
                 <div className="search-password-container">
                   <input
+                    onChange={this.onChangeSearchInput}
                     placeholder="Search here..."
+                    value={searchInputValue}
                     className="search-password"
                     type="search"
                   />
@@ -186,7 +201,7 @@ class PasswordManager extends Component {
                 <label htmlFor="showPassword">Show Passwords</label>
               </div>
               <ul className="password-items-container">
-                {passwordsList.map(eachItem => (
+                {filteredSavedPasswordsList.map(eachItem => (
                   <PasswordItem
                     eachItem={eachItem}
                     checkBoxFlag={showPassword}
